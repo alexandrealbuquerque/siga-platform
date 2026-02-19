@@ -1,0 +1,8 @@
+<svg width="220" height="70" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="70" fill="#ffffff"/>
+  <text x="10" y="45" font-family="Arial" font-size="40" font-weight="bold" fill="#007A3D">
+    SIGA
+  </text>
+  <circle cx="180" cy="35" r="8" fill="#00A859"/>
+  <circle cx="200" cy="35" r="8" fill="#007A3D"/>
+</svg>
