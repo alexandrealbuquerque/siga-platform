@@ -2,66 +2,141 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>SIGA – Plataforma de Governança</title>
+<title>SIGA – Sistema Integrado de Gestão de Atendimentos</title>
 <style>
-body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f6f8; color: #333; }
-header { padding: 60px 40px; background: linear-gradient(90deg,#007A3D,#00A859); color: white; }
-h1 { font-size: 42px; margin: 10px 0 0 0; }
-.acronym { font-size: 18px; font-style: italic; }
-.slogan { margin-top: 10px; font-size: 18px; opacity: 0.95; }
-section { padding: 60px 40px; }
-h2 { color: #007A3D; }
-.button { display: inline-block; margin: 10px 15px 10px 0; padding: 14px 22px; background-color: #00A859; color: white; text-decoration: none; font-weight: bold; border-radius: 6px; transition: 0.3s; }
-.button:hover { background-color: #007A3D; }
-.card { background-color: white; padding: 25px; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-footer { padding: 30px; background-color: #007A3D; color: white; text-align: center; font-size: 14px; }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #1c1c1c;
+}
+
+header {
+    background: linear-gradient(120deg,#007A3D,#00A859);
+    color: white;
+    padding: 80px 10%;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+header h2 {
+    font-weight: 400;
+    margin: 0;
+    font-size: 20px;
+}
+
+header p {
+    margin-top: 20px;
+    font-size: 18px;
+    max-width: 600px;
+}
+
+section {
+    padding: 80px 10%;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #007A3D;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #007A3D;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 18px;
+    background-color: #00A859;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.button:hover {
+    background-color: #007A3D;
+}
+
+footer {
+    background-color: #0f3d2e;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
 </style>
 </head>
 <body>
 
 <header>
-<img src="logo-siga.svg" alt="SIGA Logo" height="60">
 <h1>SIGA</h1>
-<div class="acronym">Sistema Integrado de Gestão de Atendimentos</div>
-<div class="slogan">Governança, controle e rastreabilidade para cooperativas que operam com excelência.</div>
+<h2>Sistema Integrado de Gestão de Atendimentos</h2>
+<p>
+Governança, controle e rastreabilidade para cooperativas que operam com excelência.
+Baseado em Microsoft Power Platform.
+</p>
 </header>
 
 <section>
+<div class="section-title">Por que modernizar sua plataforma interna?</div>
+
+<div class="grid">
 
 <div class="card">
-<h2>Por que modernizar?</h2>
-<ul>
-<li>Reduz dependência de sistemas legados engessados</li>
-<li>Elimina riscos de arquitetura proprietária fechada</li>
-<li>Permite evolução modular controlada</li>
-<li>Garante segurança baseada no padrão Microsoft</li>
-<li>Centraliza governança operacional</li>
-</ul>
+<h3>Arquitetura Moderna</h3>
+<p>Baseado em Dataverse e Security Roles nativos da Microsoft.</p>
+<a href="arquitetura.html" class="button">Ver Arquitetura</a>
 </div>
 
 <div class="card">
-<h2>Arquitetura</h2>
-<ul>
-<li>Core Estrutural protegido (Dataverse)</li>
-<li>Security Roles nativos</li>
-<li>Separação entre administração e operação</li>
-<li>Modelo meta-driven híbrido e escalável</li>
-</ul>
+<h3>Governança Estruturada</h3>
+<p>Separação entre configuração e operação com controle granular.</p>
+<a href="governanca.html" class="button">Ver Governança</a>
 </div>
 
 <div class="card">
-<h2>Documentação Técnica</h2>
-<a class="button" href="arquitetura.md">Arquitetura Técnica</a>
-<a class="button" href="comparativo-tecnico.md">Comparativo Técnico</a>
-<a class="button" href="perguntas-dificeis-ti.md">Perguntas Difíceis da TI</a>
-<a class="button" href="governanca-seguranca.md">Governança e Segurança</a>
+<h3>Comparativo Técnico</h3>
+<p>Análise técnica detalhada sobre modelo moderno vs sistemas legados.</p>
+<a href="comparativo.html" class="button">Ver Comparativo</a>
 </div>
 
+<div class="card">
+<h3>Perguntas da TI</h3>
+<p>Respostas técnicas para segurança, escalabilidade e ALM.</p>
+<a href="perguntas-ti.html" class="button">Ver Documento</a>
+</div>
+
+</div>
 </section>
 
 <footer>
 SIGA – Sistema Integrado de Gestão de Atendimentos<br>
-Baseado em Microsoft Power Platform
+Arquitetura 2.0 | Baseado em Microsoft Power Platform
 </footer>
 
 </body>
