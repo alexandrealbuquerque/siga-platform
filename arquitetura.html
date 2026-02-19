@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Arquitetura – SIGA</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/mermaid.js"></script>
+<script>
+mermaid.initialize({ startOnLoad: true });
+</script>
+</head>
+<body>
+
+<div class="navbar">
+<a href="index.html"><strong>SIGA</strong></a>
+<a href="arquitetura.html">Arquitetura</a>
+<a href="governanca.html">Governança</a>
+<a href="comparativo.html">Comparativo</a>
+<a href="perguntas-ti.html">Perguntas TI</a>
+</div>
+
+<div class="section">
+<div class="section-title">Arquitetura Técnica – SIGA</div>
+
+<p>
+O SIGA foi projetado para operar exclusivamente dentro do tenant Microsoft da cooperativa,
+utilizando Dataverse como núcleo estrutural.
+</p>
+
+<div class="mermaid">
+flowchart TB
+    Tenant["Tenant Microsoft da Cooperativa"]
+    Dataverse["Dataverse"]
+    Core["SIGA_Core (Tabelas Estruturais)"]
+    Modulos["SIGA_Modulos (Tabelas de Negócio)"]
+    Permissoes["SIGA_Permissoes (Controle Funcional)"]
+    Canvas["Canvas App Operacional"]
+    Model["Model-Driven Configuração"]
+
+    Tenant --> Dataverse
+    Dataverse --> Core
+    Dataverse --> Modulos
+    Dataverse --> Permissoes
+    Dataverse --> Canvas
+    Dataverse --> Model
+</div>
+
+</div>
+
+<footer>
+SIGA – Arquitetura 2.0
+</footer>
+
+</body>
+</html>
