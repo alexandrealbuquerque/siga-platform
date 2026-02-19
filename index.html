@@ -9,44 +9,64 @@
 <link rel="stylesheet" href="css/style.css">
 
 <style>
+
 * {
     box-sizing: border-box;
 }
-    
+
 body {
     margin: 0;
-    overflow-x: hidden; /* elimina scroll lateral */
     font-family: Arial, Helvetica, sans-serif;
     background: #f4f6f9;
     color: #1c1c1c;
+    overflow-x: hidden;
 }
+
+/* ================= NAVBAR ================= */
 
 .navbar {
     background: #0B6E3D;
-    padding: 15px 30px;
+    padding: 15px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
-    width: 100%;
+    position: relative;
 }
 
-
-.navbar img {
-    height: 98px;
+.logo img {
+    height: 60px;
+    max-width: 100%;
 }
 
-.navbar a {
+.menu {
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
     color: white;
     text-decoration: none;
-    margin-left: 25px;
     font-weight: 500;
+    white-space: nowrap;
 }
+
+.menu a:hover {
+    opacity: 0.8;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ================= HERO ================= */
 
 .hero {
     background: linear-gradient(135deg, #0B6E3D, #00A859);
     color: white;
-    padding: 120px 20px 140px 20px; /* AQUI aumentamos o topo */
+    padding: 110px 20px 140px 20px;
     text-align: center;
     position: relative;
 }
@@ -61,7 +81,6 @@ body {
     background: #f4f6f9;
     border-radius: 50% 50% 0 0;
 }
-
 
 .hero h1 {
     font-size: 42px;
@@ -80,17 +99,21 @@ body {
     line-height: 1.6;
 }
 
+/* ================= SECTIONS ================= */
+
 .section {
-    padding: 60px 20px;
+    padding: 80px 20px;
     max-width: 1200px;
     margin: auto;
 }
 
 .section h3 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     font-size: 28px;
 }
+
+/* ================= CARDS ================= */
 
 .cards {
     display: grid;
@@ -107,7 +130,7 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
 }
 
 .card h4 {
@@ -128,27 +151,40 @@ body {
     font-weight: bold;
 }
 
+/* ================= FOOTER ================= */
+
 .footer {
     background: #0B6E3D;
     color: white;
     text-align: center;
     padding: 30px;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
-.menu {
-    display: flex;
-    flex-wrap: wrap;
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 900px) {
+
+    .menu {
+        position: absolute;
+        top: 75px;
+        right: 0;
+        background: #0B6E3D;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+        display: none;
+    }
+
+    .menu a {
+        padding: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
 }
 
-.menu a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    white-space: nowrap;
-}
-    
 </style>
 </head>
 
@@ -156,11 +192,11 @@ body {
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <a href="index.html">
+    <a href="index.html" class="logo">
         <img src="logo/logo-siga-simples.svg" alt="SIGA">
     </a>
 
-    <div class="menu">
+    <div class="menu" id="menu">
         <a href="executivo.html">Executivo</a>
         <a href="arquitetura.html">Técnico</a>
         <a href="roadmap.html">Roadmap</a>
@@ -168,6 +204,7 @@ body {
         <a href="saas.html">SaaS</a>
     </div>
 
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
 </div>
 
 <!-- HERO -->
@@ -182,7 +219,7 @@ body {
     </p>
 </div>
 
-<!-- SEÇÃO COMERCIAL -->
+<!-- SEÇÃO PRINCIPAL -->
 <div class="section">
     <h3>Plataforma Corporativa Profissional</h3>
 
@@ -190,45 +227,31 @@ body {
 
         <div class="card">
             <h4>Site Executivo</h4>
-            <p>
-                Visão institucional voltada para diretoria, conselho e
-                tomadores de decisão.
-            </p>
+            <p>Visão institucional voltada para diretoria e conselho.</p>
             <a href="executivo.html">Acessar →</a>
         </div>
 
         <div class="card">
             <h4>Arquitetura Técnica</h4>
-            <p>
-                Detalhamento técnico da arquitetura, governança e
-                modelo de segurança.
-            </p>
+            <p>Modelo técnico, governança e segurança da plataforma.</p>
             <a href="arquitetura.html">Acessar →</a>
         </div>
 
         <div class="card">
             <h4>Roadmap Estratégico</h4>
-            <p>
-                Planejamento evolutivo da plataforma com visão de expansão
-                corporativa e escalabilidade.
-            </p>
+            <p>Planejamento evolutivo e visão de escalabilidade.</p>
             <a href="roadmap.html">Acessar →</a>
         </div>
 
         <div class="card">
             <h4>Simulação Visual</h4>
-            <p>
-                Protótipo visual da aplicação operacional (Canvas App).
-            </p>
+            <p>Protótipo visual da aplicação operacional.</p>
             <a href="simulacao.html">Acessar →</a>
         </div>
 
         <div class="card">
             <h4>Estrutura SaaS Real</h4>
-            <p>
-                Modelo real de implantação multiambiente e governança
-                baseada em tenant Microsoft.
-            </p>
+            <p>Implantação multiambiente baseada em tenant Microsoft.</p>
             <a href="saas.html">Acessar →</a>
         </div>
 
@@ -237,9 +260,20 @@ body {
 
 <!-- FOOTER -->
 <div class="footer">
-    © 2026 SIGA – Sistema Integrado de Gestão de Atendimentos  
+    © 2026 SIGA – Sistema Integrado de Gestão de Atendimentos<br>
     Plataforma baseada em Microsoft Power Platform
 </div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    if (menu.style.display === "flex") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
+}
+</script>
 
 </body>
 </html>
