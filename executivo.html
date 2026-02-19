@@ -6,54 +6,216 @@
 <title>SIGA – Visão Executiva</title>
 
 <style>
-body { margin:0; font-family:Arial, Helvetica, sans-serif; background:#f4f6f9; }
-.header { background:#0B6E3D; color:white; padding:60px 20px; text-align:center; }
-.header h1 { margin:0; font-size:38px; }
-.section { padding:60px 20px; max-width:1100px; margin:auto; }
-.card { background:white; padding:30px; border-radius:8px; box-shadow:0 5px 20px rgba(0,0,0,0.08); margin-bottom:30px; }
-.card h3 { color:#0B6E3D; }
-.footer { background:#0B6E3D; color:white; text-align:center; padding:30px; margin-top:50px; }
+* { box-sizing: border-box; }
+
+body {
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+    color:#1c1c1c;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background:#0B6E3D;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo img {
+    height:90px;
+    max-width:100%;
+}
+
+.menu {
+    display:flex;
+    gap:25px;
+}
+
+.menu a {
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+/* HEADER */
+
+.header {
+    background:linear-gradient(135deg,#0B6E3D,#00A859);
+    color:white;
+    padding:120px 20px;
+    text-align:center;
+}
+
+.header h1 {
+    margin:0;
+    font-size:44px;
+}
+
+.header h2 {
+    margin-top:15px;
+    font-weight:300;
+}
+
+.header p {
+    margin-top:25px;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:18px;
+    line-height:1.6;
+}
+
+/* SECTION */
+
+.section {
+    padding:80px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.card {
+    background:white;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.08);
+    margin-bottom:50px;
+}
+
+.card h3 {
+    color:#0B6E3D;
+    margin-top:0;
+    font-size:26px;
+}
+
+.card ul {
+    padding-left:20px;
+    line-height:1.9;
+}
+
+.highlight {
+    background:#e6f4ec;
+    padding:20px;
+    border-left:6px solid #00A859;
+    margin-top:25px;
+}
+
+.footer {
+    background:#0B6E3D;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+    font-size:14px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+    .navbar {
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .menu {
+        flex-wrap:wrap;
+        margin-top:15px;
+        gap:15px;
+    }
+
+    .header h1 {
+        font-size:32px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="header">
-<h1>SIGA – Sistema Integrado de Gestão de Atendimentos</h1>
-<p>Governança, controle e rastreabilidade para cooperativas de crédito.</p>
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="index.html" class="logo">
+        <img src="logo/logo-siga-simples.svg" alt="SIGA">
+    </a>
+
+    <div class="menu">
+        <a href="executivo.html">Executivo</a>
+        <a href="arquitetura.html">Técnico</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="simulacao.html">Simulação</a>
+        <a href="saas.html">SaaS</a>
+    </div>
 </div>
 
+<!-- HEADER -->
+<div class="header">
+    <h1>SIGA</h1>
+    <h2>Sistema Integrado de Gestão de Atendimentos</h2>
+    <p>
+        Plataforma corporativa construída integralmente dentro do ecossistema protegido da Microsoft,
+        utilizando Dataverse, Azure Active Directory e segurança nativa do tenant institucional.
+    </p>
+</div>
+
+<!-- CONTEÚDO -->
 <div class="section">
 
-<div class="card">
-<h3>Por que modernizar?</h3>
-<ul>
-<li>Redução de dependência de sistemas legados</li>
-<li>Governança baseada em segurança Microsoft</li>
-<li>Rastreabilidade completa de processos</li>
-<li>Controle granular por setor e perfil</li>
-</ul>
+    <div class="card">
+        <h3>Baseado no Universo Protegido Microsoft</h3>
+        <ul>
+            <li>Infraestrutura hospedada no Microsoft Azure</li>
+            <li>Autenticação via Azure AD (Microsoft Entra ID)</li>
+            <li>Controle de acesso por Security Roles nativas</li>
+            <li>Isolamento por Tenant Corporativo</li>
+            <li>Criptografia de dados em repouso e em trânsito</li>
+            <li>Logs e auditoria nativos do Dataverse</li>
+        </ul>
+
+        <div class="highlight">
+            Nenhum dado é armazenado fora do ambiente institucional da cooperativa.
+            O SIGA opera dentro do mesmo tenant Microsoft já utilizado pela organização.
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Governança Corporativa Real</h3>
+        <ul>
+            <li>Modelo de permissão granular por setor, perfil e função</li>
+            <li>Separação entre camada operacional e camada de configuração</li>
+            <li>Rastreabilidade completa de movimentações</li>
+            <li>Histórico imutável de alterações</li>
+            <li>Conformidade com LGPD e boas práticas de segurança</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Escalabilidade e Estrutura SaaS</h3>
+        <ul>
+            <li>Arquitetura replicável para múltiplas unidades</li>
+            <li>Implantação multiambiente (Dev, Homologação, Produção)</li>
+            <li>Controle de versão e ALM estruturado</li>
+            <li>Preparado para expansão corporativa</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Impacto Estratégico</h3>
+        <p>
+            O SIGA substitui modelos engessados por uma plataforma moderna,
+            auditável e integrada ao ecossistema Microsoft.
+            Reduz riscos tecnológicos, fortalece governança e posiciona
+            a cooperativa em um patamar corporativo sustentável.
+        </p>
+    </div>
+
 </div>
 
-<div class="card">
-<h3>Impacto Estratégico</h3>
-<p>
-O SIGA estrutura a gestão operacional em um modelo auditável, escalável e replicável.
-Permite padronização corporativa, expansão para múltiplas unidades e governança real.
-</p>
-</div>
-
-<div class="card">
-<h3>Base Tecnológica</h3>
-<p>
-Arquitetura baseada em Microsoft Power Platform, Dataverse e modelo híbrido meta-driven 2.0.
-</p>
-</div>
-
-</div>
-
+<!-- FOOTER -->
 <div class="footer">
-© 2026 SIGA – Plataforma Corporativa
+© 2026 SIGA – Sistema Integrado de Gestão de Atendimentos  
+Plataforma 100% baseada em Microsoft Power Platform
 </div>
 
 </body>
