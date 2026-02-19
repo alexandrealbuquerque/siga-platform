@@ -3,140 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <title>SIGA – Sistema Integrado de Gestão de Atendimentos</title>
-<style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #f5f7fa;
-    color: #1c1c1c;
-}
-
-header {
-    background: linear-gradient(120deg,#007A3D,#00A859);
-    color: white;
-    padding: 80px 10%;
-}
-
-header h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
-
-header h2 {
-    font-weight: 400;
-    margin: 0;
-    font-size: 20px;
-}
-
-header p {
-    margin-top: 20px;
-    font-size: 18px;
-    max-width: 600px;
-}
-
-section {
-    padding: 80px 10%;
-}
-
-.section-title {
-    font-size: 28px;
-    margin-bottom: 30px;
-    color: #007A3D;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-}
-
-.card h3 {
-    margin-top: 0;
-    color: #007A3D;
-}
-
-.button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 18px;
-    background-color: #00A859;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-}
-
-.button:hover {
-    background-color: #007A3D;
-}
-
-footer {
-    background-color: #0f3d2e;
-    color: white;
-    text-align: center;
-    padding: 30px;
-    font-size: 14px;
-}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
+<div class="navbar">
+<a href="index.html"><strong>SIGA</strong></a>
+<a href="arquitetura.html">Arquitetura</a>
+<a href="governanca.html">Governança</a>
+<a href="comparativo.html">Comparativo</a>
+<a href="perguntas-ti.html">Perguntas TI</a>
+</div>
+
+<div class="hero">
 <h1>SIGA</h1>
 <h2>Sistema Integrado de Gestão de Atendimentos</h2>
 <p>
 Governança, controle e rastreabilidade para cooperativas que operam com excelência.
 Baseado em Microsoft Power Platform.
 </p>
-</header>
+<a href="arquitetura.html" class="button">Ver Arquitetura Técnica</a>
+</div>
 
-<section>
-<div class="section-title">Por que modernizar sua plataforma interna?</div>
+<div class="section">
+<div class="section-title">Plataforma Corporativa Moderna</div>
 
 <div class="grid">
 
 <div class="card">
-<h3>Arquitetura Moderna</h3>
-<p>Baseado em Dataverse e Security Roles nativos da Microsoft.</p>
-<a href="arquitetura.html" class="button">Ver Arquitetura</a>
+<h3>Segurança Nativa</h3>
+<p>Baseada em Security Roles e isolamento por tenant.</p>
+</div>
+
+<div class="card">
+<h3>Modelo Híbrido Escalável</h3>
+<p>Estrutura física + JSON controlado para expansão.</p>
 </div>
 
 <div class="card">
 <h3>Governança Estruturada</h3>
-<p>Separação entre configuração e operação com controle granular.</p>
-<a href="governanca.html" class="button">Ver Governança</a>
+<p>Separação clara entre configuração e operação.</p>
 </div>
 
 <div class="card">
-<h3>Comparativo Técnico</h3>
-<p>Análise técnica detalhada sobre modelo moderno vs sistemas legados.</p>
-<a href="comparativo.html" class="button">Ver Comparativo</a>
-</div>
-
-<div class="card">
-<h3>Perguntas da TI</h3>
-<p>Respostas técnicas para segurança, escalabilidade e ALM.</p>
-<a href="perguntas-ti.html" class="button">Ver Documento</a>
+<h3>Implantação Controlada</h3>
+<p>Entrega via Solution Managed dentro do tenant.</p>
 </div>
 
 </div>
-</section>
+</div>
 
 <footer>
-SIGA – Sistema Integrado de Gestão de Atendimentos<br>
-Arquitetura 2.0 | Baseado em Microsoft Power Platform
+SIGA – Arquitetura 2.0 | Baseado em Microsoft Power Platform
 </footer>
 
 </body>
