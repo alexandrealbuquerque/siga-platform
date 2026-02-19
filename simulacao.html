@@ -3,87 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIGA – Simulação Visual</title>
+<title>SIGA – Simulação Premium</title>
 
 <style>
-* { box-sizing: border-box; }
+:root {
+    --primary:#0B6E3D;
+    --secondary:#00A859;
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --text:#1c1c1c;
+}
+
+body.dark {
+    --bg:#1e1f23;
+    --card:#2a2b30;
+    --text:#ffffff;
+}
 
 body {
     margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background:#eef2f5;
-    color:#1c1c1c;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:0.3s;
 }
 
 /* NAVBAR */
 
 .navbar {
-    background:#0B6E3D;
+    background:var(--primary);
     padding:15px 25px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    position:relative;
-}
-
-.logo img { height:90px; }
-
-.menu { display:flex; gap:25px; }
-
-.menu a {
     color:white;
-    text-decoration:none;
-    font-weight:500;
 }
 
-.hamburger { display:none; color:white; font-size:28px; cursor:pointer; }
+.logo img { height:70px; }
 
-/* DASHBOARD LAYOUT */
-
-.dashboard { padding:40px; }
-
-.section-title {
-    font-size:22px;
-    margin:40px 0 20px 0;
-    color:#0B6E3D;
+.controls {
+    display:flex;
+    gap:15px;
+    align-items:center;
 }
 
-/* METRIC CARDS */
+button {
+    padding:8px 14px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* LOGIN */
+
+#loginScreen {
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#0B6E3D,#00A859);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-box {
+    background:white;
+    padding:40px;
+    border-radius:10px;
+    width:320px;
+}
+
+.login-box input {
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+.dashboard {
+    padding:40px;
+    display:none;
+}
+
+/* CARDS */
 
 .grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
 }
 
 .card {
-    background:white;
+    background:var(--card);
     padding:25px;
-    border-radius:10px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
 }
 
 .metric {
-    font-size:30px;
+    font-size:28px;
     font-weight:bold;
     margin-top:10px;
-    color:#0B6E3D;
 }
 
-/* POWER BI STYLE GRAPH */
+/* GRAPH */
 
-.chart {
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+.bar-container {
+    margin:12px 0;
 }
 
 .bar {
-    height:28px;
-    background:#00A859;
-    margin:12px 0;
+    height:26px;
+    background:var(--secondary);
+    width:0;
     border-radius:4px;
+    transition:1s ease-out;
 }
 
 /* KANBAN */
@@ -95,104 +127,64 @@ body {
 }
 
 .column {
-    background:white;
+    background:var(--card);
     padding:20px;
     border-radius:10px;
     min-width:250px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.08);
 }
 
 .ticket {
-    background:#f4f6f9;
-    padding:15px;
+    background:var(--bg);
+    padding:12px;
     border-radius:6px;
-    margin-bottom:12px;
-    font-size:13px;
+    margin-bottom:10px;
+    cursor:grab;
 }
 
-/* ATENDIMENTO FORM */
-
-.form {
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-}
+/* FORM */
 
 .form input, .form select, .form textarea {
     width:100%;
     padding:10px;
-    margin:8px 0 18px 0;
-    border-radius:6px;
-    border:1px solid #ccc;
+    margin-bottom:15px;
 }
 
-.form button {
-    background:#0B6E3D;
-    color:white;
-    padding:12px 20px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-/* MOCKUP POWER APPS */
-
-.mockup {
-    background:#ffffff;
-    border-radius:12px;
-    padding:30px;
-    box-shadow:0 12px 40px rgba(0,0,0,0.12);
-}
-
-.mock-header {
-    background:#0B6E3D;
-    color:white;
-    padding:15px;
-    border-radius:6px;
-    margin-bottom:20px;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:900px){
-    .menu {
-        position:absolute;
-        top:75px;
-        right:0;
-        background:#0B6E3D;
-        flex-direction:column;
-        width:100%;
-        padding:20px;
-        display:none;
-    }
-    .hamburger { display:block; }
+.section-title {
+    margin:40px 0 20px;
+    font-size:20px;
+    color:var(--primary);
 }
 </style>
 </head>
 
 <body>
 
-<div class="navbar">
-    <a href="index.html" class="logo">
-        <img src="logo/logo-siga-simples.svg">
-    </a>
-
-    <div class="menu" id="menu">
-        <a href="executivo.html">Executivo</a>
-        <a href="arquitetura.html">Arquitetura</a>
-        <a href="roadmap.html">Roadmap</a>
-        <a href="simulacao.html">Simulação</a>
-        <a href="saas.html">SaaS</a>
+<!-- LOGIN SCREEN -->
+<div id="loginScreen">
+    <div class="login-box">
+        <h3>SIGA – Login</h3>
+        <input type="text" placeholder="Usuário">
+        <input type="password" placeholder="Senha">
+        <button onclick="login()">Entrar</button>
     </div>
-
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
 </div>
 
-<div class="dashboard">
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">
+        <img src="logo/logo-siga-simples.svg">
+    </div>
 
-    <!-- METRICS -->
-    <div class="section-title">Indicadores Operacionais</div>
+    <div class="controls">
+        <button onclick="toggleTheme()">🌙 Tema</button>
+        <button onclick="logout()">Sair</button>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+
+    <div class="section-title">Indicadores</div>
     <div class="grid">
         <div class="card">
             Atendimentos Abertos
@@ -203,84 +195,85 @@ body {
             <div class="metric">4.2h</div>
         </div>
         <div class="card">
-            Índice de Conformidade
+            Conformidade
             <div class="metric">97%</div>
         </div>
     </div>
 
-    <!-- POWER BI STYLE -->
     <div class="section-title">Volume por Setor</div>
-    <div class="chart">
+    <div class="card">
         TI
-        <div class="bar" style="width:80%"></div>
+        <div class="bar-container"><div class="bar" data-width="80%"></div></div>
         Financeiro
-        <div class="bar" style="width:65%"></div>
+        <div class="bar-container"><div class="bar" data-width="65%"></div></div>
         Jurídico
-        <div class="bar" style="width:40%"></div>
-        RH
-        <div class="bar" style="width:55%"></div>
+        <div class="bar-container"><div class="bar" data-width="45%"></div></div>
     </div>
 
-    <!-- KANBAN -->
-    <div class="section-title">Workflow Kanban</div>
+    <div class="section-title">Kanban</div>
     <div class="kanban">
-        <div class="column">
+        <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
             <strong>Abertos</strong>
-            <div class="ticket">#1023 – Solicitação Crédito</div>
-            <div class="ticket">#1024 – Ajuste Cadastro</div>
+            <div class="ticket" draggable="true" ondragstart="drag(event)" id="t1">#1023 Crédito</div>
+            <div class="ticket" draggable="true" ondragstart="drag(event)" id="t2">#1024 Cadastro</div>
         </div>
-        <div class="column">
+
+        <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
             <strong>Em Andamento</strong>
-            <div class="ticket">#1019 – Análise Jurídica</div>
+            <div class="ticket" draggable="true" ondragstart="drag(event)" id="t3">#1019 Jurídico</div>
         </div>
-        <div class="column">
+
+        <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
             <strong>Finalizados</strong>
-            <div class="ticket">#1002 – Abertura Conta</div>
         </div>
     </div>
 
-    <!-- FORM -->
-    <div class="section-title">Tela de Atendimento</div>
-    <div class="form">
-        <label>Título</label>
-        <input type="text" placeholder="Ex: Solicitação de Crédito">
-
-        <label>Setor</label>
+    <div class="section-title">Novo Atendimento</div>
+    <div class="card form">
+        <input type="text" placeholder="Título">
         <select>
             <option>TI</option>
             <option>Financeiro</option>
             <option>Jurídico</option>
         </select>
-
-        <label>Descrição</label>
-        <textarea rows="4"></textarea>
-
-        <button>Salvar Atendimento</button>
-    </div>
-
-    <!-- MOCKUP POWER APPS -->
-    <div class="section-title">Mockup Estilo Power Apps</div>
-    <div class="mockup">
-        <div class="mock-header">
-            SIGA – Atendimento #1023
-        </div>
-        <p><strong>Status:</strong> Em Andamento</p>
-        <p><strong>Responsável:</strong> Agência Centro</p>
-        <p><strong>Data de Abertura:</strong> 19/02/2026</p>
-        <p><strong>Histórico:</strong></p>
-        <ul>
-            <li>09:12 – Atendimento criado</li>
-            <li>09:35 – Encaminhado ao Jurídico</li>
-            <li>10:02 – Em análise</li>
-        </ul>
+        <textarea rows="4" placeholder="Descrição"></textarea>
+        <button>Salvar</button>
     </div>
 
 </div>
 
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+function login(){
+    document.getElementById("loginScreen").style.display="none";
+    document.getElementById("dashboard").style.display="block";
+    animateBars();
+}
+
+function logout(){
+    document.getElementById("loginScreen").style.display="flex";
+    document.getElementById("dashboard").style.display="none";
+}
+
+function toggleTheme(){
+    document.body.classList.toggle("dark");
+}
+
+function animateBars(){
+    document.querySelectorAll(".bar").forEach(bar=>{
+        bar.style.width = bar.dataset.width;
+    });
+}
+
+/* DRAG & DROP */
+
+function allowDrop(ev){ ev.preventDefault(); }
+
+function drag(ev){ ev.dataTransfer.setData("text", ev.target.id); }
+
+function drop(ev){
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.closest(".column").appendChild(document.getElementById(data));
 }
 </script>
 
