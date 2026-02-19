@@ -2,32 +2,204 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Arquitetura – SIGA</title>
-<link rel="stylesheet" href="css/style.css">
-<script src="js/mermaid.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <script>
 mermaid.initialize({ startOnLoad: true });
 </script>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+    color:#1c1c1c;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background:#0B6E3D;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+}
+
+.logo img {
+    height:90px;
+    max-width:100%;
+}
+
+.menu {
+    display:flex;
+    gap:25px;
+}
+
+.menu a {
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.menu a:hover {
+    opacity:0.8;
+}
+
+.hamburger {
+    display:none;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+}
+
+/* HEADER */
+
+.header {
+    background:linear-gradient(135deg,#0B6E3D,#00A859);
+    color:white;
+    padding:110px 20px;
+    text-align:center;
+}
+
+.header h1 {
+    margin:0;
+    font-size:42px;
+}
+
+.header p {
+    margin-top:20px;
+    font-size:18px;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* SECTION */
+
+.section {
+    padding:80px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.card {
+    background:white;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.08);
+    margin-bottom:50px;
+}
+
+.card h3 {
+    margin-top:0;
+    color:#0B6E3D;
+}
+
+.highlight {
+    background:#e6f4ec;
+    padding:20px;
+    border-left:6px solid #00A859;
+    margin-top:25px;
+}
+
+/* FOOTER */
+
+.footer {
+    background:#0B6E3D;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+    font-size:14px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width:900px) {
+
+    .menu {
+        position:absolute;
+        top:75px;
+        right:0;
+        background:#0B6E3D;
+        flex-direction:column;
+        width:100%;
+        padding:20px;
+        display:none;
+    }
+
+    .menu a {
+        padding:10px 0;
+    }
+
+    .hamburger {
+        display:block;
+    }
+
+    .header h1 {
+        font-size:30px;
+    }
+}
+</style>
+
 </head>
+
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
-<a href="index.html"><strong>SIGA</strong></a>
-<a href="arquitetura.html">Arquitetura</a>
-<a href="governanca.html">Governança</a>
-<a href="comparativo.html">Comparativo</a>
-<a href="perguntas-ti.html">Perguntas TI</a>
+    <a href="index.html" class="logo">
+        <img src="logo/logo-siga-simples.svg" alt="SIGA">
+    </a>
+
+    <div class="menu" id="menu">
+        <a href="executivo.html">Executivo</a>
+        <a href="arquitetura.html">Arquitetura</a>
+        <a href="governanca.html">Governança</a>
+        <a href="comparativo.html">Comparativo</a>
+        <a href="perguntas-ti.html">Perguntas TI</a>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
 </div>
 
+<!-- HEADER -->
+<div class="header">
+    <h1>Arquitetura Técnica – SIGA</h1>
+    <p>
+        Plataforma construída integralmente dentro do tenant Microsoft da cooperativa,
+        utilizando Dataverse como núcleo estrutural e segurança nativa do ecossistema Azure.
+    </p>
+</div>
+
+<!-- CONTEÚDO -->
 <div class="section">
-<div class="section-title">Arquitetura Técnica – SIGA</div>
 
-<p>
-O SIGA foi projetado para operar exclusivamente dentro do tenant Microsoft da cooperativa,
-utilizando Dataverse como núcleo estrutural.
-</p>
+    <div class="card">
+        <h3>Modelo Estrutural</h3>
+        <p>
+            O SIGA opera exclusivamente dentro do universo protegido Microsoft,
+            utilizando infraestrutura Azure, autenticação via Microsoft Entra ID
+            e controle de acesso baseado em Security Roles nativas do Dataverse.
+        </p>
 
-<div class="mermaid">
+        <div class="highlight">
+            Nenhum dado é armazenado fora do ambiente institucional da cooperativa.
+            Toda a operação ocorre dentro do tenant corporativo.
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Diagrama Arquitetural</h3>
+
+        <div class="mermaid">
 flowchart TB
     Tenant["Tenant Microsoft da Cooperativa"]
     Dataverse["Dataverse"]
@@ -43,13 +215,38 @@ flowchart TB
     Dataverse --> Permissoes
     Dataverse --> Canvas
     Dataverse --> Model
-</div>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <h3>Camadas da Arquitetura</h3>
+        <ul>
+            <li><strong>Camada Estrutural:</strong> Tabelas físicas protegidas no Dataverse</li>
+            <li><strong>Camada Funcional:</strong> Controle granular por perfil, setor e módulo</li>
+            <li><strong>Camada Operacional:</strong> Canvas App otimizado com cache de permissões</li>
+            <li><strong>Camada de Configuração:</strong> Model-Driven App restrito a administradores</li>
+        </ul>
+    </div>
 
 </div>
 
-<footer>
-SIGA – Arquitetura 2.0
-</footer>
+<!-- FOOTER -->
+<div class="footer">
+SIGA – Arquitetura 2.0  
+Plataforma 100% baseada em Microsoft Power Platform
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    if (menu.style.display === "flex") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
+}
+</script>
 
 </body>
 </html>
