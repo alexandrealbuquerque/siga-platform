@@ -2,50 +2,252 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SIGA – Roadmap Estratégico</title>
+
 <style>
-body { margin:0; font-family:Arial; background:#f4f6f9; }
-.header { background:#00A859; color:white; padding:60px; text-align:center; }
-.timeline { max-width:900px; margin:60px auto; }
-.phase { background:white; padding:30px; margin-bottom:20px; border-left:6px solid #0B6E3D; box-shadow:0 4px 15px rgba(0,0,0,0.08); }
-.phase h3 { margin-top:0; }
+* { box-sizing: border-box; }
+
+body {
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+    color:#1c1c1c;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background:#0B6E3D;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+}
+
+.logo img {
+    height:90px;
+    max-width:100%;
+}
+
+.menu {
+    display:flex;
+    gap:25px;
+}
+
+.menu a {
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.menu a:hover {
+    opacity:0.8;
+}
+
+.hamburger {
+    display:none;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+}
+
+/* HEADER */
+
+.header {
+    background:linear-gradient(135deg,#0B6E3D,#00A859);
+    color:white;
+    padding:120px 20px;
+    text-align:center;
+}
+
+.header h1 {
+    margin:0;
+    font-size:42px;
+}
+
+.header p {
+    margin-top:20px;
+    font-size:18px;
+}
+
+/* TIMELINE */
+
+.timeline {
+    max-width:1000px;
+    margin:80px auto;
+    padding:0 20px;
+}
+
+.phase {
+    background:white;
+    padding:40px;
+    margin-bottom:30px;
+    border-left:6px solid #00A859;
+    box-shadow:0 10px 35px rgba(0,0,0,0.08);
+    border-radius:8px;
+}
+
+.phase h3 {
+    margin-top:0;
+    color:#0B6E3D;
+}
+
+.phase p {
+    line-height:1.6;
+}
+
+.badge {
+    display:inline-block;
+    background:#e6f4ec;
+    color:#0B6E3D;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+/* FOOTER */
+
+.footer {
+    background:#0B6E3D;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+    font-size:14px;
+    margin-top:80px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width:900px) {
+
+    .menu {
+        position:absolute;
+        top:75px;
+        right:0;
+        background:#0B6E3D;
+        flex-direction:column;
+        width:100%;
+        padding:20px;
+        display:none;
+    }
+
+    .menu a {
+        padding:10px 0;
+    }
+
+    .hamburger {
+        display:block;
+    }
+
+    .header h1 {
+        font-size:30px;
+    }
+}
 </style>
+
 </head>
+
 <body>
 
-<div class="header">
-<h1>Roadmap Estratégico – SIGA</h1>
-<p>Evolução estruturada da plataforma</p>
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="index.html" class="logo">
+        <img src="logo/logo-siga-simples.svg" alt="SIGA">
+    </a>
+
+    <div class="menu" id="menu">
+        <a href="executivo.html">Executivo</a>
+        <a href="arquitetura.html">Arquitetura</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="simulacao.html">Simulação</a>
+        <a href="saas.html">SaaS</a>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
 </div>
 
+<!-- HEADER -->
+<div class="header">
+    <h1>Roadmap Estratégico – SIGA</h1>
+    <p>Evolução estruturada da plataforma corporativa</p>
+</div>
+
+<!-- TIMELINE -->
 <div class="timeline">
 
-<div class="phase">
-<h3>Fase 1 – Core Estrutural</h3>
-<p>Criação das tabelas estruturais e modelo de segurança nativo.</p>
+    <div class="phase">
+        <span class="badge">Fundação</span>
+        <h3>Fase 1 – Core Estrutural</h3>
+        <p>
+            Criação das tabelas estruturais no Dataverse,
+            definição da arquitetura base e implementação
+            da segurança nativa Microsoft (Security Roles).
+        </p>
+    </div>
+
+    <div class="phase">
+        <span class="badge">Governança</span>
+        <h3>Fase 2 – Modelo de Permissão Granular</h3>
+        <p>
+            Implementação do controle funcional por perfil,
+            setor e módulo, com separação clara entre
+            segurança física e comportamento de interface.
+        </p>
+    </div>
+
+    <div class="phase">
+        <span class="badge">Escalabilidade</span>
+        <h3>Fase 3 – Base Meta-Driven 2.0</h3>
+        <p>
+            Estrutura híbrida com tabelas físicas e JSON controlado,
+            eliminando riscos do modelo EAV e garantindo
+            performance corporativa.
+        </p>
+    </div>
+
+    <div class="phase">
+        <span class="badge">Operação</span>
+        <h3>Fase 4 – Aplicação Operacional</h3>
+        <p>
+            Canvas App otimizado com cache de permissões,
+            renderização leve e experiência fluida
+            para usuários finais.
+        </p>
+    </div>
+
+    <div class="phase">
+        <span class="badge">Expansão</span>
+        <h3>Fase 5 – Estrutura SaaS Corporativa</h3>
+        <p>
+            Replicação multiunidade, controle de versão,
+            ALM estruturado e modelo preparado para
+            expansão sistêmica dentro do ecossistema Microsoft.
+        </p>
+    </div>
+
 </div>
 
-<div class="phase">
-<h3>Fase 2 – Modelo de Permissão Granular</h3>
-<p>Implementação do controle funcional por perfil, setor e módulo.</p>
+<!-- FOOTER -->
+<div class="footer">
+© 2026 SIGA – Sistema Integrado de Gestão de Atendimentos  
+Plataforma corporativa baseada em Microsoft Power Platform
 </div>
 
-<div class="phase">
-<h3>Fase 3 – Base Meta-Driven 2.0</h3>
-<p>Motor híbrido com JSON controlado e tabelas físicas.</p>
-</div>
-
-<div class="phase">
-<h3>Fase 4 – Aplicação Operacional</h3>
-<p>Canvas App com renderização otimizada e cache de permissões.</p>
-</div>
-
-<div class="phase">
-<h3>Fase 5 – Expansão Corporativa</h3>
-<p>Replicação multiunidade e estrutura SaaS corporativa.</p>
-</div>
-
-</div>
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    if (menu.style.display === "flex") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
+}
+</script>
 
 </body>
 </html>
